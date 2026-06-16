@@ -8,9 +8,12 @@ const ROOT = path.resolve(__dirname, '..');
 const MANUAL_DIR = path.join(ROOT, 'modules', 'RailWorks', 'manual');
 const NAV_FILE = path.join(ROOT, 'modules', 'RailWorks', 'docs', 'nav.html');
 const CSS_SRC = path.join(ROOT, 'CSS');
+const STAGING_DIR = path.join(ROOT, '.site-staging');
 const SITE_DIR = path.join(ROOT, 'site');
 const BASE_URL = (process.env.BASE_URL ?? '/railWorks_Documentation').replace(/\/$/, '');
 const WELCOME_PATH = 'modules/RailWorks/manual/WelcomeToRailWorks.html';
+
+let outputDir = STAGING_DIR;
 
 const navTemplate = fs.readFileSync(NAV_FILE, 'utf8');
 
@@ -150,7 +153,7 @@ ${bodyContent}
 </html>
 `;
 
-	const outputPath = path.join(SITE_DIR, sitePath);
+	const outputPath = path.join(outputDir, sitePath);
 	fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 	fs.writeFileSync(outputPath, output, 'utf8');
 }
@@ -169,29 +172,58 @@ function buildIndex() {
 </body>
 </html>
 `;
-	fs.writeFileSync(path.join(SITE_DIR, 'index.html'), indexHtml, 'utf8');
+	fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml, 'utf8');
 }
 
-function cleanSiteDir() {
-	fs.rmSync(SITE_DIR, { recursive: true, force: true });
-	fs.mkdirSync(SITE_DIR, { recursive: true });
+function cleanOutputDir(dir) {
+	fs.rmSync(dir, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 });
+	fs.mkdirSync(dir, { recursive: true });
+}
+
+function promoteStagingToSite() {
+	try {
+		fs.rmSync(SITE_DIR, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+		fs.renameSync(STAGING_DIR, SITE_DIR);
+		return true;
+	} catch {
+		return false;
+	}
 }
 
 function main() {
 	console.log(`Building site with BASE_URL="${BASE_URL}"`);
-	cleanSiteDir();
-	copyDir(CSS_SRC, path.join(SITE_DIR, 'CSS'));
+	outputDir = STAGING_DIR;
+	cleanOutputDir(STAGING_DIR);
+	copyDir(CSS_SRC, path.join(outputDir, 'CSS'));
 
 	walkDir(MANUAL_DIR, (filePath) => {
-		if (!filePath.endsWith('.html')) {
+		const relativePath = path.relative(MANUAL_DIR, filePath);
+		const destPath = path.join(outputDir, 'modules', 'RailWorks', 'manual', relativePath);
+
+		if (filePath.endsWith('.html')) {
+			buildPage(filePath);
+			console.log(`  built ${getManualRelativePath(filePath)}`);
 			return;
 		}
-		buildPage(filePath);
-		console.log(`  built ${getManualRelativePath(filePath)}`);
+
+		fs.mkdirSync(path.dirname(destPath), { recursive: true });
+		fs.copyFileSync(filePath, destPath);
+		console.log(`  copied ${getManualRelativePath(filePath)}`);
 	});
 
 	buildIndex();
-	console.log(`Done. Output: ${SITE_DIR}`);
+
+	if (promoteStagingToSite()) {
+		console.log(`Done. Output: ${SITE_DIR}`);
+		return;
+	}
+
+	console.warn('');
+	console.warn(`Could not replace ${SITE_DIR} (stop npx serve or close files in site/ and re-run).`);
+	console.warn(`Build output is available at: ${STAGING_DIR}`);
+	console.warn(`Preview with: npx serve ${STAGING_DIR}`);
+	console.warn('');
+	process.exitCode = 1;
 }
 
 main();
