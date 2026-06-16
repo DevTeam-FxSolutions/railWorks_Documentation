@@ -61,6 +61,27 @@ function getCssRelativePath(manualRelativePath) {
 	return '../'.repeat(levelsUp) + 'CSS/';
 }
 
+function getImagesRelativePath(manualRelativePath) {
+	const dirPart = path.posix.dirname(manualRelativePath.replace('modules/RailWorks/manual/', ''));
+	const depth = dirPart === '.' ? 0 : dirPart.split('/').length;
+	return '../'.repeat(depth) + 'Images/';
+}
+
+function buildSidebarHtml(navHtml, imagesPath) {
+	const homeUrl = joinBaseUrl(WELCOME_PATH);
+	return `\t\t\t<div class="sidebar-brand sidebar-brand--railworks">
+\t\t\t\t<a href="${homeUrl}" aria-label="RailWorks Documentation home">
+\t\t\t\t\t<img src="${imagesPath}logo_RW.svg" alt="RailWorks" />
+\t\t\t\t</a>
+\t\t\t</div>
+\t\t\t<div class="sidebar-nav">
+\t\t\t\t${navHtml}
+\t\t\t</div>
+\t\t\t<div class="sidebar-brand sidebar-brand--flexsim">
+\t\t\t\t<img src="${imagesPath}logo_FS.png" alt="FlexSim" />
+\t\t\t</div>`;
+}
+
 function joinBaseUrl(sitePath) {
 	const normalizedPath = sitePath.replace(/\\/g, '/');
 	if (!BASE_URL) {
@@ -127,6 +148,8 @@ function buildPage(filePath) {
 
 	let navHtml = rewriteNavLinks(navTemplate);
 	navHtml = markActiveNav(navHtml, sitePath);
+	const imagesPath = getImagesRelativePath(sitePath);
+	const sidebarHtml = buildSidebarHtml(navHtml, imagesPath);
 
 	const output = `<!DOCTYPE html>
 <html>
@@ -134,13 +157,14 @@ function buildPage(filePath) {
 ${headHtml}
 \t<link rel="stylesheet" href="${cssPath}docs-layout.css" />
 \t<link rel="stylesheet" href="${cssPath}toc/css/menu.css" />
+\t<link rel="stylesheet" href="${cssPath}sidebar-theme.css" />
 </head>
 ${bodyOpen}
 \t<button type="button" class="sidebar-toggle" aria-label="Menu">&#9776;</button>
 \t<div class="sidebar-overlay" aria-hidden="true"></div>
 \t<div class="docs-layout">
 \t\t<aside class="docs-sidebar" aria-label="Navegação">
-\t\t\t${navHtml}
+${sidebarHtml}
 \t\t</aside>
 \t\t<main class="docs-content">
 ${bodyContent}

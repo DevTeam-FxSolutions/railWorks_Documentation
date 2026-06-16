@@ -66,7 +66,7 @@ code {
 --------------------------------------- */
 
 h1 {
-	color: #032240;
+	color: #0d0d0d;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 160%;
 	letter-spacing: 5px;
@@ -74,7 +74,7 @@ h1 {
 	position: relative;
 	clear: both;
 	background-color: #fff;
-	color:#032240;
+	color:#0d0d0d;
 	margin: 0 0 0 0px;
 	padding: 30px 0px 50px 0;
 	line-height: 300%px;
@@ -88,25 +88,25 @@ header>h1:before {
 	position: absolute;
 	width: 100%;
 	height: 4px;
-	border-top: 8px solid #0a3e6e;
-	background-color: #dbac72;
+	border-top: 8px solid #1a1a1a;
+	background-color: #a8a8a8;
 	top: 0px;
 	right: 0px;
 }
 h2 { 
-	color: #032240;
+	color: #0d0d0d;
 	font-weight: bold;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 125%;
 	letter-spacing: 2px;
 	margin: 60px 0px 10px 0px;
-	border-bottom: 1px solid #032240;
+	border-bottom: 1px solid #0d0d0d;
 }
 /* h2 spans are used in tutorial topics to create the arrow effect */
 h2 span {
 	color: #ffffff;
 	text-transform: uppercase;
-	background-color: #0a3e6e;
+	background-color: #1a1a1a;
 	padding: 5px 10px 5px 10px;
 	margin: 0 10px 10px 0;
 	position: relative;
@@ -126,7 +126,7 @@ h2 span:after {
 	right: -17px;
 }
 h3 {
-	color: #032240;
+	color: #0d0d0d;
 	font-weight: bold;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 110%;
@@ -164,8 +164,8 @@ nav:before {
 	margin-left: 2px;
 }
 nav {
-	background-color: #0a3e6e;
-	border: 1px solid #0a3e6e;
+	background-color: #1a1a1a;
+	border: 1px solid #1a1a1a;
 	border-left: 0px;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 11pt;
@@ -229,8 +229,8 @@ aside em.gui {
 	font-size: 11pt;
 }
 aside.important {
-	border: 1px solid #0a3e6e;
-	background-color: #cbe3fa;
+	border: 1px solid #1a1a1a;
+	background-color: #e5e5e5;
 }
 aside.important:before {
 	display: block;
@@ -243,8 +243,8 @@ aside.important:before {
 	left: 10px;
 }
 aside.tip {
-	border: 1px solid #dcab72;
-	background-color: #f7eadb;
+	border: 1px solid #888888;
+	background-color: #f0f0f0;
 }
 aside.tip:before {
 	display: block;
@@ -281,7 +281,7 @@ table th {
 	vertical-align: top;
 	padding-top:5px;
 	padding-bottom:4px;
-	background-color: #cbe3fa;
+	background-color: #e5e5e5;
 	color: #000000;
 }
 table td {
@@ -289,7 +289,7 @@ table td {
 	vertical-align: top;
 }
 table tr:nth-child(odd) {
-	background-color: #eef4f8;
+	background-color: #f5f5f5;
 }
 table ul li {
 	text-align: left;
@@ -461,9 +461,9 @@ ul.noListOrSpace li{
 --------------------------------------- */
 
 .task  .badge {
-	background: #032240;
+	background: #0d0d0d;
 	/* Alternate color
-	background: #0a3e6e; */
+	background: #1a1a1a; */
 	border-radius: 50%;
 	width: 65px;
 	height: 65px;
@@ -489,7 +489,7 @@ ul.noListOrSpace li{
 	font-weight: bold;
 }
 .task h3 a, .task h3 a:link, .task h3 a:visited {
-	color: #032240;
+	color: #0d0d0d;
 	font-weight: bold;
 	font-family: Arial, Verdana, sans-serif;
 	font-size: 12pt;
@@ -511,30 +511,30 @@ ul.noListOrSpace li{
 	vertical-align: middle;
 	margin: 0 0 20px 10px;
 	display: inline;
-	background: #cbe3fa;
-	background-image: -webkit-linear-gradient(top, #cbe3fa, #cbe3fa);
-	background-image: -moz-linear-gradient(top, #cbe3fa, #cbe3fa);
-	background-image: -ms-linear-gradient(top, #cbe3fa, #cbe3fa);
-	background-image: -o-linear-gradient(top, #cbe3fa, #cbe3fa);
-	background-image: linear-gradient(to bottom, #cbe3fa, #cbe3fa);
+	background: #e5e5e5;
+	background-image: -webkit-linear-gradient(top, #e5e5e5, #e5e5e5);
+	background-image: -moz-linear-gradient(top, #e5e5e5, #e5e5e5);
+	background-image: -ms-linear-gradient(top, #e5e5e5, #e5e5e5);
+	background-image: -o-linear-gradient(top, #e5e5e5, #e5e5e5);
+	background-image: linear-gradient(to bottom, #e5e5e5, #e5e5e5);
 	-webkit-border-radius: 28;
 	-moz-border-radius: 28;
 	border-radius: 28px;
 	font-family: Arial;
 	font-size: 8pt;
-	color: #0a3e6e;
+	color: #1a1a1a;
 	font-size: 20px;
 	padding: 5px 10px 10px 10px;
-	border: solid #0a3e6e 1px;
+	border: solid #1a1a1a 1px;
 	text-decoration: none;
 }
 
 .btn:hover {
-	background: #3cb0fd;
-	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	background: #666666;
+	background-image: -webkit-linear-gradient(top, #666666, #4d4d4d);
+	background-image: -moz-linear-gradient(top, #666666, #4d4d4d);
+	background-image: -ms-linear-gradient(top, #666666, #4d4d4d);
+	background-image: -o-linear-gradient(top, #666666, #4d4d4d);
+	background-image: linear-gradient(to bottom, #666666, #4d4d4d);
 	text-decoration: none;
 }

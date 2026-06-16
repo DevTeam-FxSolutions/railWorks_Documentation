@@ -86,7 +86,7 @@
 }
 
 .topnav li > a:not(:only-child):hover {
-	background-color:#032240;
+	background-color:#0d0d0d;
 	color:white;
 }
 

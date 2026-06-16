@@ -53,7 +53,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:#0a3e6e;fill-opacity:1;fill-rule:evenodd;stroke:#0a3e6e;stroke-width:0.81156307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#1a1a1a;fill-opacity:1;fill-rule:evenodd;stroke:#1a1a1a;stroke-width:0.81156307px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="path3336"
        cx="268.98065"
        cy="438.77094"
@@ -83,7 +83,7 @@
        inkscape:export-ydpi="61.52" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.35753632px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#0a3e6e;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.35753632px;line-height:125%;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="265.51959"
        y="446.75351"
        id="text4140"
@@ -95,6 +95,6 @@
          id="tspan4142"
          x="265.51959"
          y="446.75351"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.34846115px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';fill:#0a3e6e;fill-opacity:1">!</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48.34846115px;font-family:'Arial Rounded MT Bold';-inkscape-font-specification:'Arial Rounded MT Bold, ';fill:#1a1a1a;fill-opacity:1">!</tspan></text>
   </g>
 </svg>
