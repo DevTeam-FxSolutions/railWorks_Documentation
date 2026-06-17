@@ -10,7 +10,7 @@ const NAV_FILE = path.join(ROOT, 'modules', 'RailWorks', 'docs', 'nav.html');
 const CSS_SRC = path.join(ROOT, 'CSS');
 const STAGING_DIR = path.join(ROOT, '.site-staging');
 const SITE_DIR = path.join(ROOT, 'site');
-const BASE_URL = (process.env.BASE_URL ?? '/railWorks_Documentation').replace(/\/$/, '');
+const BASE_URL = (process.env.BASE_URL ?? '').replace(/\/$/, '');
 const WELCOME_PATH = 'modules/RailWorks/manual/WelcomeToRailWorks.html';
 
 let outputDir = STAGING_DIR;
